@@ -1,0 +1,11 @@
+<li <%= 'class=completed' if todo.complete? %>>
+	<div class='view'>
+
+		<%= form_for todo do|f| %>
+			<%= f.check_box :complete, class: "toggle" %>
+		<% end %>
+
+		<label><%= todo.item %></label>
+
+	</div>
+</li>
