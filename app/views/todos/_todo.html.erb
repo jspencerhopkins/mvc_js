@@ -1,0 +1,12 @@
+<li <%= 'class=completed' if todo.complete? %> id="<%= dom_id(todo) %>">
+	<div class='view'>
+
+		<%= form_for todo, remote: true, authenticity_token: true do|f| %>
+			<%= f.check_box :complete, class: "toggle" %>
+		<% end %>
+
+		<label><%= todo.item %></label>
+		<%= button_to 'X', todo_path(todo.id), method: :delete, class: 'destroy', remote: true, authenticity_token: true %>
+		<!--<button class="destroy"></button>-->
+	</div>
+</li>
