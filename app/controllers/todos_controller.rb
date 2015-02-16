@@ -13,6 +13,21 @@ class TodosController < ApplicationController
 		end
 	end
 
+	def update
+		@todo = Todo.find(params[:id])
+		@todo.update(params.require(:todo).permit(:complete))
+		redirect_to root_url
+	end
+
+	def destroy
+		@todo = Todo.find(params[:id])
+		@todo.destroy
+		respond_to do |format|
+			format.html {redirect_to root_url}
+			format.js {}
+		end
+	end
+
 
 
 	private
